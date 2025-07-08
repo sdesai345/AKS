@@ -12,9 +12,9 @@ tags:
 
 ## Introduction
 
-You may have heard of the [Kubernetes AI Toolchain Operator](https://github.com/Azure/kaito/tree/main) (KAITO) announced at Ignite 2023 and KubeCon Europe this year. The open source project has gained popularity in recent months by introducing a streamlined approach to AI model deployment and flexible infrastructure provisioning on Kubernetes.
+You may have heard of the [Kubernetes AI Toolchain Operator](https://aka.ms/kaito) (KAITO) announced at Ignite 2023 and KubeCon Europe this year. The open source project has gained popularity in recent months by introducing a streamlined approach to AI model deployment and flexible infrastructure provisioning on Kubernetes.
 
-With the [v0.3.0 release](https://github.com/Azure/kaito/releases/tag/v0.3.0), KAITO has expanded the supported model library to include the Phi-3 model, but the biggest (and most exciting) addition is the ability to fine-tune open-source models. Why should you be excited about fine-tuning? Well, it’s because fine-tuning is one way of giving your foundation model additional training using a specific dataset to enhance accuracy, which ultimately improves the interaction with end-users. (Another way to increase model accuracy is Retrieval-Augmented Generation (RAG), which we touch on briefly in this [section](#Stay-tuned-to-make-models-smarter), coming soon to KAITO).
+With the [v0.3.0 release](https://github.com/kaito-project/kaito/releases/tag/v0.3.0), KAITO has expanded the supported model library to include the Phi-3 model, but the biggest (and most exciting) addition is the ability to fine-tune open-source models. Why should you be excited about fine-tuning? Well, it’s because fine-tuning is one way of giving your foundation model additional training using a specific dataset to enhance accuracy, which ultimately improves the interaction with end-users. (Another way to increase model accuracy is Retrieval-Augmented Generation (RAG), which we touch on briefly in this [section](#Stay-tuned-to-make-models-smarter), coming soon to KAITO).
 
 ## Fine-tuning a foundation model is sometimes necessary
 
@@ -33,7 +33,7 @@ Let’s start the journey of fine-tuning the Phi-3 model using KAITO.
 
 First, we need an input dataset, so we’ll use a [public dataset](https://huggingface.co/datasets/sidddddddddddd/kubernetes) that is optimized for knowledge about Kubernetes and cloud platforms.
 
-> This is the original dataset which we selected and reformatted using [these instructions](https://github.com/Azure/kaito/tree/main/docs/tuning#input-dataset-format) from the HuggingFace trainer library.
+> This is the original dataset which we selected and reformatted using [these instructions](https://kaito-project.github.io/kaito/docs/tuning/#input-dataset-format) from the HuggingFace trainer library.
 
 To use the data set in KAITO, we can specify it in the new `tuning` property in the workspace API. 
 
@@ -70,7 +70,7 @@ The tuning property specifies the minimum information required for starting a tu
 
 > The choice of GPU SKU is critical since model fine-tuning normally requires more GPU memory compared to model inference. To avoid GPU Out-Of-Memory, NVIDIA A100 or higher tier GPUs are recommended. 
 
-You can check out the [KAITO tuning API](https://github.com/Azure/kaito/tree/main/docs/tuning) for more details and troubleshooting tips!
+You can check out the [KAITO tuning API](https://kaito-project.github.io/kaito/docs/tuning/) for more details and troubleshooting tips!
 
 After deploying the tuning workspace, KAITO will create a Job workload in the same namespace as the workspace and run to completion. A common perception is that model training job would take a long time – well, yes it can be multiple hours even for fine-tuning. You can track the tuning progress in the Job pod log, reported by the number of steps completed out of the total. 
 
@@ -133,10 +133,10 @@ We’re just getting started and would love your feedback. To learn more about K
 
 **Resources**
 
-- [KAITO fine-tuning guide](https://github.com/Azure/kaito/tree/main/docs/tuning)
+- [KAITO fine-tuning guide](https://github.com/kaito-project/kaito/blob/main/website/docs/tuning.md)
 - [Concepts - Fine-tuning language models for AI and machine learning workflows](https://learn.microsoft.com/azure/aks/concepts-fine-tune-language-models)
 - [Concepts - Small and large language models](https://learn.microsoft.com/azure/aks/concepts-ai-ml-language-models)
-- [KAITO Roadmap](https://github.com/orgs/Azure/projects/669)
+- [KAITO Roadmap](https://github.com/orgs/kaito-project/projects/1)
 
 ## Acknowledgements
 Huge thanks to [Paul Yu](https://www.linkedin.com/in/yupaul) for co-authoring this blog and providing valuable feedback on KAITO since the early stages of the project!
