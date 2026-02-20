@@ -166,7 +166,7 @@ general:
   label: General
   permalink: /general
   description: Broad AKS topics, announcements, conceptual overviews, and cross-cutting guidance.
-  
+
 grafana:
   label: Grafana
   permalink: /grafana
